@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking | Tommy Fernandez Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">TF</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="about.html" class="nav-link">About Me</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Book Your Session Today</h1>
+    </header>
+
+    <main class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <section class="contact-form-section">
+                    <h2>Get Connected With Me!</h2>
+                    <p class="section-subtitle">Have a question or want to learn more? Send me a message and I'll get back to you soon.</p>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or ask any questions..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </section>
+
+                <!-- Booking Form -->
+                <section class="booking-form-section">
+                    <h2>Request a Session</h2>
+                    <p class="section-subtitle">Select your preferred date and session type to request a booking.</p>
+
+                    <form class="booking-form" id="bookingForm">
+                        <div class="form-group">
+                            <label for="bookingName">Full Name</label>
+                            <input type="text" id="bookingName" name="bookingName" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingEmail">Email</label>
+                            <input type="email" id="bookingEmail" name="bookingEmail" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionType">Session Type</label>
+                            <select id="sessionType" name="sessionType" required>
+                                <option value="">Select a session type</option>
+                                <option value="portraits">Portrait Session</option>
+                                <option value="graduation">Graduation Photography</option>
+                                <option value="commercial">Commercial Photography</option>
+                                <option value="urban">Urban / Landscape Session</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select a Date</label>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button type="button" class="calendar-nav" id="prevMonth">&larr;</button>
+                                    <h3 id="calendarMonth">January 2026</h3>
+                                    <button type="button" class="calendar-nav" id="nextMonth">&rarr;</button>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <span>Sun</span>
+                                    <span>Mon</span>
+                                    <span>Tue</span>
+                                    <span>Wed</span>
+                                    <span>Thu</span>
+                                    <span>Fri</span>
+                                    <span>Sat</span>
+                                </div>
+                                <div class="calendar-days" id="calendarDays">
+                                    <!-- Days will be populated by JavaScript -->
+                                </div>
+                            </div>
+                            <input type="hidden" id="selectedDate" name="selectedDate" required>
+                            <p class="selected-date-display" id="selectedDateDisplay">No date selected</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bookingNotes">Additional Notes</label>
+                            <textarea id="bookingNotes" name="bookingNotes" rows="3" placeholder="Any special requests or details about your session..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent">Request Booking</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Tommy Fernandez Photography</h3>
+                    <p>Miami, FL & Orlando, FL</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>Email: tommy@fernandezphoto.com</p>
+                    <p>Phone: (305) 555-0123</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tommy Fernandez Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Calendar functionality
+        const calendarDays = document.getElementById('calendarDays');
+        const calendarMonth = document.getElementById('calendarMonth');
+        const prevMonthBtn = document.getElementById('prevMonth');
+        const nextMonthBtn = document.getElementById('nextMonth');
+        const selectedDateInput = document.getElementById('selectedDate');
+        const selectedDateDisplay = document.getElementById('selectedDateDisplay');
+
+        let currentDate = new Date();
+        let selectedDate = null;
+
+        const months = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            calendarMonth.textContent = `${months[month]} ${year}`;
+
+            // Get first day of month and total days
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Get today's date for comparison
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            let html = '';
+
+            // Empty cells for days before first day of month
+            for (let i = 0; i < firstDay; i++) {
+                html += '<span class="calendar-day empty"></span>';
+            }
+
+            // Days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateObj = new Date(year, month, day);
+                const dateStr = dateObj.toISOString().split('T')[0];
+                const isPast = dateObj < today;
+                const isSelected = selectedDate === dateStr;
+                const isWeekend = dateObj.getDay() === 0 || dateObj.getDay() === 6;
+
+                let classes = 'calendar-day';
+                if (isPast) classes += ' past';
+                if (isSelected) classes += ' selected';
+                if (isWeekend && !isPast) classes += ' available';
+                if (!isPast && !isWeekend) classes += ' available';
+
+                html += `<span class="${classes}" data-date="${dateStr}" ${isPast ? '' : `onclick="selectDate('${dateStr}')"`}>${day}</span>`;
+            }
+
+            calendarDays.innerHTML = html;
+        }
+
+        function selectDate(dateStr) {
+            selectedDate = dateStr;
+            selectedDateInput.value = dateStr;
+
+            const date = new Date(dateStr + 'T00:00:00');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            selectedDateDisplay.textContent = `Selected: ${date.toLocaleDateString('en-US', options)}`;
+            selectedDateDisplay.classList.add('has-date');
+
+            renderCalendar();
+        }
+
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        // Initialize calendar
+        renderCalendar();
+
+        // Form submissions
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! Tommy will get back to you soon.');
+            this.reset();
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!selectedDate) {
+                alert('Please select a date for your session.');
+                return;
+            }
+            alert('Thank you for your booking request! Tommy will confirm your session shortly.');
+            this.reset();
+            selectedDate = null;
+            selectedDateInput.value = '';
+            selectedDateDisplay.textContent = 'No date selected';
+            selectedDateDisplay.classList.remove('has-date');
+            renderCalendar();
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
