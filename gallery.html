@@ -125,6 +125,15 @@
                     <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-14.jpg" alt="Graduation 14"></div>
                     <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-15.jpg" alt="Graduation 15"></div>
                     <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-16.jpg" alt="Graduation 16"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-17.jpg" alt="Graduation 17"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-18.jpg" alt="Graduation 18"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-19.jpg" alt="Graduation 19"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-20.jpg" alt="Graduation 20"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-21.jpg" alt="Graduation 21"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-22.jpg" alt="Graduation 22"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-23.jpg" alt="Graduation 23"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-24.jpg" alt="Graduation 24"></div>
+                    <div class="gallery-item"><img src="https://res.cloudinary.com/hlrnyt5t/image/upload/v1789943637/graduation-25.jpg" alt="Graduation 25"></div>
                 </div>
             </section>
 
@@ -154,6 +163,15 @@
         </div>
     </main>
 
+    <!-- Lightbox (hidden by default) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -163,8 +181,8 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Get in Touch</h4>
-                    <p>Email: tommy@fernandezphoto.com</p>
-                    <p>Phone: (305) 555-0123</p>
+                    <p>Email: tommyfernandez099@gmail.com</p>
+                    <!-- <p>Phone: (305) 555-0123</p> -->
                     <div class="footer-social">
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -246,6 +264,70 @@
             } else {
                 showCategories();
             }
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function openLightbox(imgEl) {
+            const grid = imgEl.closest('.gallery-grid');
+            currentImages = Array.from(grid.querySelectorAll('img'));
+            currentIndex = currentImages.indexOf(imgEl);
+            updateLightboxImage();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightboxImage() {
+            const img = currentImages[currentIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            updateLightboxImage();
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            updateLightboxImage();
+        }
+
+        document.querySelectorAll('.gallery-grid').forEach(grid => {
+            grid.addEventListener('click', (event) => {
+                const item = event.target.closest('.gallery-item');
+                if (item) {
+                    openLightbox(item.querySelector('img'));
+                }
+            });
+        });
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxNext').addEventListener('click', showNextImage);
+        document.getElementById('lightboxPrev').addEventListener('click', showPrevImage);
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (event.key === 'Escape') closeLightbox();
+            if (event.key === 'ArrowRight') showNextImage();
+            if (event.key === 'ArrowLeft') showPrevImage();
         });
 
         // Mobile menu toggle
